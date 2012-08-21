@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML Form Validate</title>
+<link rel="stylesheet" href="formvalidate.css">
+</head>
+
+<body>
+<h1>HTML Form Validate Plugin for jQuery</h1>
+<p>The HTML Form Validate Plugin for jQuery performs a client side validation of a form based on parameters defined in the form HTML</p>
+<p>This allows for complete configuration outside of JavaScript</p>
+<h2>Basic Usage</h2>
+
+<ol>
+	<li>Add class to the input corresponding to the type of desired validation</li>
+    <li>Add a data-[[classname]] attribute where [[classname]] = the validation class.  The value of this attribute is set to the ID of the error message pane that will display when this validation fails. </li>
+</ol>
+
+<h3>Sample for Required Field</h3>
+<textarea cols="130" rows="3">
+<input type="text" name="name" value="" class="valrequired" data-valrequired="nameErr" />
+<div id="nameErr" class="hidden errorpane">Name is required</div>
+</textarea>
+
+<h3>Default Classes</h3>
+<ul>
+	<li>valrequired  -  Input required</li>
+    <li>valnumsonly  -  Numbers only</li>
+    <li>valemail  -  Valid Email</li>
+    <li>valifvisible  -  Required only if visible</li>
+    <li>valmin - minimum number value
+    	<ul><li>requires additional parameter 'data-valmin-value' with the value of minimium value</li></ul></li>
+    <li>valmax - maximum number value
+    	<ul><li>requires additional parameter 'data-valmax-value' with the value of maximumvalue</li></ul></li>
+</ul>
+
+<h3>Demonstration of Basic Usage</h3>
+
+<form id="myform" class="validate">
+	<p>Required Field</p>
+	<label>Name</label> <input type="text" name="name" value="" class="valrequired" data-valrequired="nameErr" />
+    <div id="nameErr" class="hidden errorpane">Name is required</div>
+    
+    <p>Email Address</p>
+    <label>Email</label> <input type="text" name="email" value="" class="valemail" data-valemail="emailErr" />
+    <div id="emailErr" class="hidden errorpane">Please enter a valid Email address</div>
+    
+    <p>Numbers Only</p>
+    <label>Phone Number</label> <input type="text" name="phone" value="" class="valnumsonly" data-valnumsonly="phoneNumsErr" />
+    <div id="phoneNumsErr" class="hidden errorpane">Phone Number must be Numbers Only</div>
+    
+    <p>Email Address</p>
+    <label>Email</label> <input type="text" name="email" value="" class="valemail" data-valemail="emailErr" />
+    <div id="emailErr" class="hidden errorpane">Please enter a valid Email address</div>
+
+	<input type="submit" value="submit" name="submit" />
+    
+</form>
+
+<h2>Additional Checks (edge case)</h2>
+<ul>
+<li>Minimum value</li>
+<li>Maximum value</li>
+<li>Required only if Visible</li>
+</ul>
+
+<h2>Advanced Usage</h2>
+<ul>
+<li>Overwritting classnames</li>
+<li>AJAX Form Posts</li>
+<li>Invalid Callback Function</li>
+<li>Valid Callback Function</li>
+</ul>
+
+<script src="libs/jquery-1.8.0.min.js"></script> 
+<script src="formvalidate.jquery.js"></script> 
+
+<script>
+$(document).ready(function(){
+	$('.validate').formValidate();
+});
+
+</script>
+
+</body>
+</html>

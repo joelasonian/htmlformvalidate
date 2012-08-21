@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+.validate .errorpane {
+	background: #F5E5E6;
+	border: 1px solid #F5989D;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px;
+	color: #C9252B;
+	text-align: left;
+}
+
+.validate .hidden {
+	display:none;
+	
+}
+
