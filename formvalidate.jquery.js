@@ -32,6 +32,8 @@
 			emailClass: 'valemail',
 			//Required Only If Visible?
 			visibleReqClass: 'valifvisible',
+			//Exact Length?
+			exactlenClass: 'valexactlen',
 			//callback passthrough
             validCallback: function() {},
 			invalidCallback: function() {}
@@ -222,6 +224,27 @@
 					});
 					obj.addClass(plugin.settings.errorClass);
 					$('#'+obj.data(plugin.settings.visibleReqClass)).slideDown();
+				  } 
+			  }
+
+			  /*******
+				** 7. Exact Length Required?
+				*******/
+			  if (obj.hasClass(plugin.settings.exactlenClass))  {   //exact length required
+				  obj.removeClass(plugin.settings.errorClass);
+				  $('#'+obj.data(plugin.settings.exactlenClass)).slideUp('fast');
+				  obj.val
+
+				  if (obj.val().length != obj.data(plugin.settings.exactlenClass + '-value') ){
+					inputValid = false;
+					obj.keyup(function(){
+					  if (obj.val().length === obj.data(plugin.settings.exactlenClass + '-value') ){
+						obj.removeClass(plugin.settings.errorClass);
+						$('#'+obj.data(plugin.settings.exactlenClass)).slideUp('fast');
+					  }  
+					});
+					obj.addClass(plugin.settings.errorClass);
+					$('#'+obj.data(plugin.settings.exactlenClass)).slideDown();
 				  } 
 			  }
 			  

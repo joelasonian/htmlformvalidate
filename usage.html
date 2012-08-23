@@ -33,6 +33,8 @@
     	<ul><li>requires additional parameter 'data-valmin-value' with the value of minimium value</li></ul></li>
     <li>valmax - maximum number value
     	<ul><li>requires additional parameter 'data-valmax-value' with the value of maximumvalue</li></ul></li>
+    <li>valexactlen - exact length of an input
+        <ul><li>requires additional parameter 'data-valexactlen-value' with the value of valexactlen</li></ul></li>
 </ul>
 
 <h3>Demonstration of Basic Usage</h3>
@@ -54,6 +56,10 @@
     <label>Email</label> <input type="text" name="email" value="" class="valemail" data-valemail="emailErr" />
     <div id="emailErr" class="hidden errorpane">Please enter a valid Email address</div>
 
+    <p>Exact Length</p>
+    <label>4 Characters Please</label> <input type="text" name="email" value="" class="valexactlen" data-valexactlen="lenErr" data-valexactlen-value="4" />
+    <div id="lenErr" class="hidden errorpane">Please enter 4 characters</div>
+
 	<input type="submit" value="submit" name="submit" />
     
 </form>
@@ -63,6 +69,7 @@
 <li>Minimum value</li>
 <li>Maximum value</li>
 <li>Required only if Visible</li>
+<li>Exact length</li>
 </ul>
 
 <h2>Advanced Usage</h2>

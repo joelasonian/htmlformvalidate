@@ -32,6 +32,8 @@ Default Classes
 ** requires additional parameter 'data-valmin-value' with the value of minimium value
 * valmax - maximum number value
 ** requires additional parameter 'data-valmax-value' with the value of maximumvalue
+* valexactlen - exact length of an input
+** requires additional parameter 'data-valexactlen-value' with the value of valexactlen
 
 
 Additional Checks (edge case)
@@ -39,6 +41,7 @@ Additional Checks (edge case)
 * Minimum value
 * Maximum value
 * Required only if Visible
+* Exact length
 
 Advanced Usage
 --------------
