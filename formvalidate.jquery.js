@@ -8,6 +8,8 @@
 4. Maximum val?  (int only)
 5. Email?
 6. Required Only If Visible?
+7. Exact Length Required?
+8. Strict Match?
 ***/
 
 
