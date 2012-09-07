@@ -26,7 +26,7 @@ Default Classes
 ------------------
 * valrequired  -  Input required
 * valstrictmatch   -  Must match value exactly
-** requires additional parameter 'data-valstrictmatch-value' with the stictmactch value
+** requires additional parameter 'data-valstrictmatch-value' with the stictmactch value  (can comma deliminate for multiple values) 
 * valnumsonly  -  Numbers only
 * valemail  -  Valid Email
 * valifvisible  -  Required only if visible

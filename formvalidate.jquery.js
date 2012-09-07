@@ -251,22 +251,41 @@
 				** 8. Strict Match?
 				*******/
 			  if (obj.hasClass(plugin.settings.strictMatchClass))  {   //exact length required
-				  obj.removeClass(plugin.settings.errorClass);
-				  $('#'+obj.data(plugin.settings.strictMatchClass)).slideUp('fast');
-				  if (obj.val() != obj.data(plugin.settings.strictMatchClass + '-value') ){
+				obj.removeClass(plugin.settings.errorClass);
+				$('#'+obj.data(plugin.settings.strictMatchClass)).slideUp('fast');
+				//split value on commas into array
+				//loop array
+				var arrayMatchStrings = obj.data(plugin.settings.strictMatchClass + '-value').split(',');
+				var matched = false;
+				
+				for (strings in arrayMatchStrings){
+					
+				  	if (obj.val() === arrayMatchStrings[strings] ){
+				  		
+				  		matched = true;
+				  	}
+				} 
+
+
+				if (!matched){
 					inputValid = false;
 					obj.keyup(function(){
-					  if (obj.val() === obj.data(plugin.settings.strictMatchClass + '-value') ){
-						obj.removeClass(plugin.settings.errorClass);
-						$('#'+obj.data(plugin.settings.strictMatchClass)).slideUp('fast');
-					  }  
+						var matched = false;
+						for (strings in arrayMatchStrings){
+						  	if (obj.val() === arrayMatchStrings[strings] ){
+						  		matched = true;
+						  	}
+						} 
+						if (matched){
+								obj.removeClass(plugin.settings.errorClass);
+								$('#'+obj.data(plugin.settings.strictMatchClass)).slideUp('fast');
+						}	 
 					});
 					obj.addClass(plugin.settings.errorClass);
 					$('#'+obj.data(plugin.settings.strictMatchClass)).slideDown();
-				  } 
-			  }
-			  
-			  return inputValid;
+				}  
+			}  
+			return inputValid;
         }
 
         plugin.init();
