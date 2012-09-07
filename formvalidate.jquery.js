@@ -34,6 +34,8 @@
 			visibleReqClass: 'valifvisible',
 			//Exact Length?
 			exactlenClass: 'valexactlen',
+			//Strict Match?
+			strictMatchClass: 'valstrictmatch',
 			//callback passthrough
             validCallback: function() {},
 			invalidCallback: function() {}
@@ -61,7 +63,6 @@
 				plugin.settings.validCallback();
 				return true;
 			} else {
-				console.log('invalid');
 				plugin.settings.invalidCallback();
 				return false;
 			}
@@ -233,8 +234,6 @@
 			  if (obj.hasClass(plugin.settings.exactlenClass))  {   //exact length required
 				  obj.removeClass(plugin.settings.errorClass);
 				  $('#'+obj.data(plugin.settings.exactlenClass)).slideUp('fast');
-				  obj.val
-
 				  if (obj.val().length != obj.data(plugin.settings.exactlenClass + '-value') ){
 					inputValid = false;
 					obj.keyup(function(){
@@ -245,6 +244,25 @@
 					});
 					obj.addClass(plugin.settings.errorClass);
 					$('#'+obj.data(plugin.settings.exactlenClass)).slideDown();
+				  } 
+			  }
+
+			  /*******
+				** 8. Strict Match?
+				*******/
+			  if (obj.hasClass(plugin.settings.strictMatchClass))  {   //exact length required
+				  obj.removeClass(plugin.settings.errorClass);
+				  $('#'+obj.data(plugin.settings.strictMatchClass)).slideUp('fast');
+				  if (obj.val() != obj.data(plugin.settings.strictMatchClass + '-value') ){
+					inputValid = false;
+					obj.keyup(function(){
+					  if (obj.val() === obj.data(plugin.settings.strictMatchClass + '-value') ){
+						obj.removeClass(plugin.settings.errorClass);
+						$('#'+obj.data(plugin.settings.strictMatchClass)).slideUp('fast');
+					  }  
+					});
+					obj.addClass(plugin.settings.errorClass);
+					$('#'+obj.data(plugin.settings.strictMatchClass)).slideDown();
 				  } 
 			  }
 			  

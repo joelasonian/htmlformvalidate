@@ -26,6 +26,8 @@
 <h3>Default Classes</h3>
 <ul>
 	<li>valrequired  -  Input required</li>
+    <li>valstrictmatch   -  Must match value exactly
+        <ul><li>requires additional parameter 'data-valstrictmatch-value' with the stictmactch value</li></ul></li>
     <li>valnumsonly  -  Numbers only</li>
     <li>valemail  -  Valid Email</li>
     <li>valifvisible  -  Required only if visible</li>
@@ -51,6 +53,10 @@
     <p>Numbers Only</p>
     <label>Phone Number</label> <input type="text" name="phone" value="" class="valnumsonly" data-valnumsonly="phoneNumsErr" />
     <div id="phoneNumsErr" class="hidden errorpane">Phone Number must be Numbers Only</div>
+
+    <p>Must Match "MyString"</p>
+    <label>MyString: </label> <input type="text" name="phone" value="" class="valstrictmatch" data-valstrictmatch-value="MyString" data-valstrictmatch="strictMatchErr"  />
+    <div id="strictMatchErr" class="hidden errorpane">Input must be 'MyString'</div>
     
     <p>Email Address</p>
     <label>Email</label> <input type="text" name="email" value="" class="valemail" data-valemail="emailErr" />

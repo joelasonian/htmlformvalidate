@@ -25,6 +25,8 @@ Sample for Required Field
 Default Classes
 ------------------
 * valrequired  -  Input required
+* valstrictmatch   -  Must match value exactly
+** requires additional parameter 'data-valstrictmatch-value' with the stictmactch value
 * valnumsonly  -  Numbers only
 * valemail  -  Valid Email
 * valifvisible  -  Required only if visible
