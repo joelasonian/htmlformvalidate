@@ -36,6 +36,7 @@ Default Classes
 ** requires additional parameter 'data-valmax-value' with the value of maximumvalue
 * valexactlen - exact length of an input
 ** requires additional parameter 'data-valexactlen-value' with the value of valexactlen
+* valphone - Matches characters commonly used in phone numbers (numbers, '(',')',' ','.','-')
 
 
 Additional Checks (edge case)

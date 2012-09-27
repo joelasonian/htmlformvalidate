@@ -10,6 +10,7 @@
 6. Required Only If Visible?
 7. Exact Length Required?
 8. Strict Match?
+9. Phone number?
 ***/
 
 
@@ -38,6 +39,8 @@
 			exactlenClass: 'valexactlen',
 			//Strict Match?
 			strictMatchClass: 'valstrictmatch',
+			//Phone Number?
+			phoneClass: 'valphone',
 			//callback passthrough
             validCallback: function() {},
 			invalidCallback: function() {}
@@ -285,8 +288,31 @@
 					});
 					obj.addClass(plugin.settings.errorClass);
 					$('#'+obj.data(plugin.settings.strictMatchClass)).slideDown();
-				}  
+				} 
 			}  
+
+			/*******
+			** 8. Phone Number?
+			*******/
+			  if (obj.hasClass(plugin.settings.phoneClass))  { 
+				  obj.removeClass(plugin.settings.errorClass);
+				  $('#'+obj.data(plugin.settings.phoneClass)).slideUp('fast');
+				  ireg = /^[0-9\(\)\-\. ]*$/;
+					if ((obj.val() ==="" ) || (obj.val() == null) || (!ireg.test(obj.val())) ){
+					  inputValid = false;
+					  obj.keyup(function(){
+						  var phoneTest = obj.val();
+						  if((obj.val() != "" ) && (obj.val() != null ) && (ireg.test(phoneTest))) {
+							obj.removeClass(plugin.settings.errorClass);
+							$('#'+obj.data(plugin.settings.phoneClass)).slideUp('fast');
+						  }  
+						});
+					  obj.addClass(plugin.settings.errorClass);
+					  $('#'+obj.data(plugin.settings.phoneClass)).slideDown();
+					}
+			  }
+
+			 
 			return inputValid;
         }
 

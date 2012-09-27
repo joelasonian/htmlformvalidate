@@ -37,6 +37,7 @@
     	<ul><li>requires additional parameter 'data-valmax-value' with the value of maximumvalue</li></ul></li>
     <li>valexactlen - exact length of an input
         <ul><li>requires additional parameter 'data-valexactlen-value' with the value of valexactlen</li></ul></li>
+    <li>valphone  -  Valid Phone Number  (allowing Numbers and "-", " ", "(", ")", "."</li>
 </ul>
 
 <h3>Demonstration of Basic Usage</h3>
@@ -51,20 +52,20 @@
     <div id="emailErr" class="hidden errorpane">Please enter a valid Email address</div>
     
     <p>Numbers Only</p>
-    <label>Phone Number</label> <input type="text" name="phone" value="" class="valnumsonly" data-valnumsonly="phoneNumsErr" />
-    <div id="phoneNumsErr" class="hidden errorpane">Phone Number must be Numbers Only</div>
+    <label>Number Field</label> <input type="text" name="numbers" value="" class="valnumsonly" data-valnumsonly="numbersNumsErr" />
+    <div id="numbersNumsErr" class="hidden errorpane">Number field must be Numbers Only</div>
 
     <p>Must Match "MyString" or "Doggy" or "Cat" or "pizza"</p>
     <label>MyString: </label> <input type="text" name="phone" value="" class="valstrictmatch" data-valstrictmatch-value="MyString,Doggy,Cat,pizza" data-valstrictmatch="strictMatchErr"  />
     <div id="strictMatchErr" class="hidden errorpane">Input must be 'MyString'</div>
-    
-    <p>Email Address</p>
-    <label>Email</label> <input type="text" name="email" value="" class="valemail" data-valemail="emailErr" />
-    <div id="emailErr" class="hidden errorpane">Please enter a valid Email address</div>
 
     <p>Exact Length</p>
     <label>4 Characters Please</label> <input type="text" name="email" value="" class="valexactlen" data-valexactlen="lenErr" data-valexactlen-value="4" />
     <div id="lenErr" class="hidden errorpane">Please enter 4 characters</div>
+
+    <p>Phone Number</p>
+    <label>Phone</label> <input type="text" name="phone" value="" class="valphone" data-valphone="phoneErr" />
+    <div id="phoneErr" class="hidden errorpane">Please enter a valid Phone Number</div>
 
 	<input type="submit" value="submit" name="submit" />
     
